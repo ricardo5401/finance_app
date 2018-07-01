@@ -1,0 +1,39 @@
+<div style="width:100%; background: #0F3C63;">
+    <center>
+        <nav class="navbar navbar-expand-lg desaau bg-dark" id="nav" style="max-width: 100%; text-align: left;">
+            <a class="navbar-brand" href="/">
+                <span>Finance APP</span>
+            </a>
+            
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav lm-auto">
+                <% if user_signed_in? %>
+                <li class="nav-item dropdown hidden-sm-down">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= current_user.short_name %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: -50px">
+                        <a href="/create_profile" class="dropdown-item">
+                            <i class="fa fa-user" style="margin-right: 5px"></i> Editar Perfil
+                        </a>
+                        <a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow" class="dropdown-item"> 
+                            <i class="fa fa-power-off" style="margin-right: 5px"></i> Logout
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item hidden-sm-up">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="collapse" 
+                        data-target="#user_menu" aria-expanded="false"><%= current_user.short_name %>
+                    </a>
+                </li>
+                <% else %>
+                <li class="nav-item">
+                    Copyrigth @<%= Date.today.year %>
+                </li>
+                <% end %>
+            </ul>
+        </nav>
+    </center>
+</div>
