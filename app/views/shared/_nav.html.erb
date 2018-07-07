@@ -1,6 +1,11 @@
+<%
+    navClass = user_signed_in? ? "navbar-dark bg-dark" : "navbar-light bg-light"
+    maxWidth = user_signed_in? ? "1366px" : "100%"
+    logo = user_signed_in? ? "logo-syz-inverse.png" : "logo-syz.png"
+%>
 <div style="width:100%; background: #0F3C63;">
     <center>
-        <nav class="navbar navbar-expand-lg desaau bg-dark" id="nav" style="max-width: 100%; text-align: left;">
+        <nav class="navbar navbar-expand-lg desaau <%= navClass %>" id="nav" style="max-width: <%= maxWidth %>; text-align: left;">
             <a class="navbar-brand" href="/">
                 <span>FINANCE APP</span>
             </a>
@@ -15,7 +20,7 @@
                         <%= current_user.short_name %>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: -50px">
-                        <a href="/create_profile" class="dropdown-item">
+                        <a href="/profile" class="dropdown-item">
                             <i class="fa fa-user" style="margin-right: 5px"></i> Editar Perfil
                         </a>
                         <a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow" class="dropdown-item"> 
@@ -30,7 +35,7 @@
                 </li>
                 <% else %>
                 <li class="nav-item">
-                    Copyrigth @<%= Date.today.year %>
+                    Copyrigth @2018
                 </li>
                 <% end %>
             </ul>

@@ -1,0 +1,59 @@
+<nav class="collapse hidden-sm-up" id="user_menu">
+    <ul class="nav bd-sidenav">
+        <li class="nav-item">
+            <a href="/profile/<%= current_user.person_id.to_s %>">
+                <i class="fa fa-user" style="margin-right: 5px"></i> Editar Perfil
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/auth/logout" data-method="delete" rel="nofollow"> 
+                <i class="fa fa-power-off" style="margin-right: 5px"></i> Logout
+            </a>
+        </li>
+    </ul>
+</nav>
+<form class="bd-search d-flex align-items-center" onsubmit="OnSubmit(event)">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" id="search">
+    <button type="submit" class="search"><i class="fa fa-search"></i></button>
+    <button type="button" class="btn bd-search-docs-toggle d-md-none ml-3"
+        data-toggle="collapse" data-target="#sidebar" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+    </button>
+</form>
+<nav class="bd-links collapse" id="sidebar">
+    <ul class="nav bd-sidenav">
+        <li class="nav-item">
+            <a href="/dashboard"><i class="fa fa-home" style="font-size: 16px"></i> Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="/people"><i class="fa fa-user-circle-o"></i> Contactos</a>
+        </li>
+        <li class="nav-item">
+            <a href="/accounts"><i class="fa fa-file-text-o"></i> Cuentas</a>
+        </li>
+        
+        <li class="nav-item">
+            <div style="width:95%; height: 1px; background: rgba(0,0,0,.1)"></div>
+        </li>
+
+        <li class="nav-item">
+            <a href="/activities/new"><i class="fa fa-edit"></i> Crear Actividad</a>
+        </li>
+        <li class="nav-item">
+            <a href="/people/new"><i class="fa fa-user-plus"></i> Crear Contacto</a>
+        </li>
+        <li class="nav-item">
+            <a href="/accounts/new"><i class="fa fa-file-text-o"></i> Crear Cuenta</a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    function OnSubmit(event) {
+        event.preventDefault();
+        var search = $("#search").val();
+        if (search != "") {
+            window.location.href = "/search?query=" + search;
+        }
+    }
+</script>

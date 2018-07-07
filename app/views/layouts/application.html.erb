@@ -20,7 +20,16 @@
   <body>
     <%= render 'shared/nav' %>
     <div class="container-fluid">
-      <%= yield %>
+      <center>
+        <div class="row flex-xl-nowrap" style="max-width: 1366px; text-align: left;">
+          <div class="col-12 col-md-2 col-xl-2 bd-sidebar">
+            <%= render 'shared/sidebar' %>
+          </div>
+          <main class="col-12 col-md-10 col-xl-10 bd-content" style="padding-bottom: 0!important;">
+            <%= yield %>
+          </main>
+        </div>
+      </center>
     </div>
   </body>
 </html>
