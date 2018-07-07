@@ -1,3 +1,89 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.body {
+    font-size: 14px;
+    color: #72777a;
+    letter-spacing: .2px;
+}
+main {
+    position: relative;
+    padding-top: 20px!important;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+nav a:hover{
+    color: white;
+}
+
+.hidden-sm-up, .hidden-sm-down {
+    display: none;
+}
+@media(min-width: 768px){
+    .form .btn{
+        width: 170px!important;
+    }
+    .btn.small{
+        width: 100%;
+        max-width: 170px;
+    }
+    .hidden-sm-down {
+        display: block;
+    }
+    .form-col {
+        float: left;
+        max-width: 400px;
+        width: 48%;
+    }
+    .form-col.second {
+        margin-left: 1.5%
+    }
+    main {
+        padding-top: 0px;
+        padding-left: 30px!important;
+        padding-right: 30px!important;
+        border-left: 1px solid rgba(0,0,0,.1);
+    }
+}
+@media(max-width: 767px){
+    .hidden-sm-up {
+        display: block;
+    }
+    .btn.hidden-sm-up {
+        display: inline-block!important;
+    }
+    .p-l {
+        padding-left:0!important;
+    }
+    .p-r {
+        padding-right: 0!important;
+    }
+    .form .btn{
+        width: 120px!important;
+    }
+    .btn.small{
+        width: 120px;
+    }
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #eee; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #999; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    width: 15px; 
+}
