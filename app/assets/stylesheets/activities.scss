@@ -1,3 +1,47 @@
 // Place all the styles related to the Activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.activity-row, .company-row{
+    padding: 10px 20px;
+    background: rgb(248, 248, 248);
+    margin: 10px 0px;
+    border-radius: 4px;
+}
+.activity-row a, .activity-row a:hover, .activity-row a:link, .activity-row a:active{
+    color: #72777a;
+    text-decoration: none;
+}
+.time-stamp{
+    font-size: 12px;
+    color: #777;
+}
+.created-stamp{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 15px;
+}
+.action-date{
+    background: #5C998C;
+    color: white;
+    margin-right: 12px;
+    float: left;
+    height: 15px;
+    line-height: 14px;
+    font-weight: normal;
+    font-size: 10px;
+    padding: 0 4px;
+    width: 47px;
+    margin-top: 4px;
+    margin-right: 20px;
+}
+.action-date:after {
+    border-width: 7px 7px;
+    border-style: solid inset solid inset;
+    border-color: #5C998C transparent #5C998C transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 15px;
+    top: 4px;
+    left: 55px;
+}

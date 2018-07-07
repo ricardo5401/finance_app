@@ -1,0 +1,27 @@
+<%
+    activity = account.activities.last
+    action_date = (!activity || activity.created_at < DateTime.now - 10.days) ? "gray" : "yellow"
+%>
+<div class="activity-row" >
+    <%= link_to account_path(account), class: "no-link" do %>
+    <div class="col-md-3 col-sm-3 inline">
+    <strong><%= account.person.short_name %></strong>
+    </div>
+    <div class="col-md-6 col-sm-7 inline">
+        <% if activity %>
+        <span class="action-date<%= action_date %>" 
+            title="<%= l(activity_date, format: "%d de %B del %Y a las %I:%M %p") %>">
+            <span style="width: 40px"><%= l(activity_date, format: "%b. %d") %></span>
+        </span>
+        <span title="<%= activity.description %>">
+            <%= activity.description.truncate(100) %>
+        </span>
+        <% else %>
+        <span>No hay actividad aún</span>
+        <% end %>
+    </div>
+    <div class="col-md-1 col-sm-1 inline">
+        <%= "S/. " + account.amount.to_s %>
+    </div>
+    <% end %>
+</div>

@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = Account.all.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /accounts/1
@@ -14,7 +14,8 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    @people = Person.all
+    @account = Account.new(user_id: current_user.id, amount: 0)
   end
 
   # GET /accounts/1/edit

@@ -1,37 +1,42 @@
-<%= form_with(model: account, local: true) do |form| %>
-  <% if account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+<div style="width: 100%" id="contact-form">
+  <%= form_with(model: account, local: true) do |form| %>
+    
+    <div class="form-col">
+      <div class="field">
+        <label>Contacto</label><br />
+        <select class="form-control" id="account_person_id" name="account[person_id" onchange="newContact(event)">
+          <% if @people %>
+          <% @people.each do |person| %>
+          <option value="<%= person.id %>" <%= account.person_id == person.id ? "selected" : "" %> ><%= person.short_name %></option>
+          <% end %>
+          <% end %>
+          <option value="0">Nuevo contacto</option>
+        </select>
+      </div>
 
-      <ul>
-      <% account.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="field">
+        <%= form.label "Descripción" %>
+        <%= form.text_area :description, id: :account_description, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.hidden_field :user_id, id: :account_user_id %>
+      </div>
+
+      <div class="field">
+        <%= form.hidden_field :amount, id: :account_amount %>
+      </div>
+
+      <div class="actions" style="margin-top: 10px">
+        <%= link_to  "Cancelar", "javascript:history.back()", class: "btn btn-default small" %>
+        <%= form.submit "Guardar", class: "btn btn-primary pull-right small", onclick: "onSubmit(event)" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.number_field :person_id, id: :account_person_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :account_user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount, id: :account_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :account_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
+<script>
+  function newContact(e){
+    if(e.target.value == 0)
+      window.location.href='/people/new'
+  }
+</script>

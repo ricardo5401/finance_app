@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
-
+    has_many :accounts
     def user
         User.where(id: self.user_id, own: true).first
     end

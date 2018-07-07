@@ -1,5 +1,3 @@
-<h1>New Account</h1>
+<%= render partial: 'shared/header', locals: { title: "Nueva Cuenta", collections: nil } %>
 
 <%= render 'form', account: @account %>
-
-<%= link_to 'Back', accounts_path %>
