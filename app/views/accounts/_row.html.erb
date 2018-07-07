@@ -7,7 +7,7 @@
     <div class="col-md-3 col-sm-3 inline">
     <strong><%= account.person.short_name %></strong>
     </div>
-    <div class="col-md-6 col-sm-7 inline">
+    <div class="col-md-6 col-sm-6 inline">
         <% if activity %>
         <span class="action-date<%= action_date %>" 
             title="<%= l(activity_date, format: "%d de %B del %Y a las %I:%M %p") %>">
@@ -20,7 +20,7 @@
         <span>No hay actividad aún</span>
         <% end %>
     </div>
-    <div class="col-md-1 col-sm-1 inline">
+    <div class="col-md-2 col-sm-2 inline" style="text-align: right">
         <%= "S/. " + account.amount.to_s %>
     </div>
     <% end %>
